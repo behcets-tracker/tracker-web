@@ -19,3 +19,74 @@ cd tracker-web
 yarn install
 yarn start # open http://localhost:3000 in your browser
 ```
+
+Current GraphQL schema:
+
+```
+type File {
+  contentType: String!
+  createdAt: DateTime
+  id: ID!
+  name: String!
+  secret: String!
+  size: Int!
+  updatedAt: DateTime
+  url: String!
+}
+
+type Medication {
+  createdAt: DateTime!
+  dailyQuantity: Int
+  dateEnded: DateTime
+  dateStarted: DateTime
+  dosage: Int
+  drugName: String
+  endReason: String
+  id: ID!
+  physicianName: String
+  sideEffects: [SideEffect!]! @relation(name: "MedicationOnSideEffect")
+  startReason: String
+  type: String!
+  updatedAt: DateTime!
+  user: User @relation(name: "UserOnMedication")
+}
+
+type SideEffect {
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  medications: [Medication!]! @relation(name: "MedicationOnSideEffect")
+  name: String
+  updatedAt: DateTime!
+}
+
+type Surgery {
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+  user: User @relation(name: "UserOnSurgery")
+}
+
+type Symptom {
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  name: String
+  question: [String!]!
+  updatedAt: DateTime!
+  user: User @relation(name: "UserOnSymptom")
+}
+
+type User {
+  auth0UserId: String
+  createdAt: DateTime
+  displayName: String
+  emailAddress: String
+  id: ID!
+  medications: [Medication!]! @relation(name: "UserOnMedication")
+  name: String
+  surgeries: [Surgery!]! @relation(name: "UserOnSurgery")
+  symptoms: [Symptom!]! @relation(name: "UserOnSymptom")
+  updatedAt: DateTime
+}
+```
