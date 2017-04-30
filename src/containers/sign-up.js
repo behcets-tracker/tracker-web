@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import SignUpView from '../components/presentational/SignUpView';
+import SignUpView from '../views/sign-up';
+import Loading from '../components/presentational/loading';
 
-class SignUpContainer extends React.Component {
+class SignUpContainer extends Component {
   render () {
+    if (this.props.data.loading) {
+      return <Loading />;
+    }
+
+    // redirect if user is logged in or did not finish Auth0 Lock dialog
+    if (this.props.data.user || window.localStorage.getItem('auth0IdToken') === null) {
+      console.warn('not a new user or already logged in');
+      this.props.router.replace('/feed');
+    }
+
     return <SignUpView data={this.props.data} createUser={this.createUser} />;
   }
 

@@ -249,30 +249,32 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-auth0-js@8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-8.5.0.tgz#ad4bbfb9cbe36331e10107ac4654ccc2d3f87853"
+auth0-js@8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-8.6.0.tgz#8af50d7884d3d3ffc73c63c2c2509140e7fc747b"
   dependencies:
     base64-js "^1.2.0"
     idtoken-verifier "^1.0.1"
+    qs "^6.4.0"
     superagent "^3.3.1"
     url-join "^1.1.0"
     winchan "^0.2.0"
 
-auth0-lock@^10.14.0:
-  version "10.14.0"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-10.14.0.tgz#e6bd9173de3f90771c20c500a324e05f6c454c1b"
+auth0-lock@^10.15.1:
+  version "10.15.1"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-10.15.1.tgz#905f94b06a24150d9f1e12bb55f1667b205a8a31"
   dependencies:
-    auth0-js "8.5.0"
+    auth0-js "8.6.0"
     blueimp-md5 "2.3.1"
     fbjs "^0.3.1"
     idtoken-verifier "^1.0.1"
     immutable "^3.7.3"
     jsonp "^0.2.0"
     password-sheriff "^1.1.0"
-    react "^15.0.0 || ^16.0.0"
-    react-addons-css-transition-group "^15.0.0 || ^16.0.0"
-    react-dom "^15.0.0 || ^16.0.0"
+    prop-types "^15.5.7 || ^16.0.0"
+    react "^15.3.0 || ^16.0.0"
+    react-addons-css-transition-group "^15.3.0 || ^16.0.0"
+    react-dom "^15.3.0 || ^16.0.0"
     superagent "^3.3.1"
     trim "0.0.1"
     url-join "^1.1.0"
@@ -4424,7 +4426,7 @@ promise@7.1.1, promise@^7.0.3, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.5.7, prop-types@~15.5.7:
+prop-types@^15.5.4, prop-types@^15.5.7, "prop-types@^15.5.7 || ^16.0.0", prop-types@~15.5.7:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -4465,6 +4467,10 @@ qs@^6.1.0, qs@~6.3.0:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.1.tgz#918c0b3bcd36679772baf135b1acb4c1651ed79d"
 
+qs@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
 query-string@^4.1.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.2.tgz#ec0fd765f58a50031a3968c2431386f8947a5cdd"
@@ -4504,7 +4510,7 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-"react-addons-css-transition-group@^15.0.0 || ^16.0.0":
+"react-addons-css-transition-group@^15.3.0 || ^16.0.0":
   version "15.5.2"
   resolved "https://registry.yarnpkg.com/react-addons-css-transition-group/-/react-addons-css-transition-group-15.5.2.tgz#ea7e0a9f0e1c27ca426da4efd3559915bd42ead2"
   dependencies:
@@ -4543,7 +4549,7 @@ react-dev-utils@^0.5.2:
     sockjs-client "1.0.1"
     strip-ansi "3.0.1"
 
-"react-dom@0.14.x || 15.* || ^15.0.0", "react-dom@^15.0.0 || ^16.0.0", react-dom@^15.5.4:
+"react-dom@0.14.x || 15.* || ^15.0.0", "react-dom@^15.3.0 || ^16.0.0", react-dom@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
@@ -4618,7 +4624,7 @@ react-scripts@0.9.5:
   optionalDependencies:
     fsevents "1.0.17"
 
-"react@^15.0.0 || ^16.0.0", react@^15.5.0:
+"react@^15.3.0 || ^16.0.0", react@^15.5.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:

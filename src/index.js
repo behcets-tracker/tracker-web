@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './components/Index';
-import SignUp from './components/SignUp';
+import HomeContainer from './containers/home';
+import SignUpContainer from './containers/sign-up';
+import FeedContainer from './containers/feed';
+import LogoutContainer from './containers/logout';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
@@ -32,10 +34,12 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <div>
-        <Route exact path='/' component={Index} />
-        <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/' component={HomeContainer} />
+        <Route exact path='/feed' component={FeedContainer} />
+        <Route exact path='/signup' component={SignUpContainer} />
+        <Route exact path='/logout' component={LogoutContainer} />
       </div>
     </Router>
   </ApolloProvider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
