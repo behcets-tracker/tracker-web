@@ -7,8 +7,7 @@ import Loading from '../components/presentational/loading';
 class AuthContainer extends Component {
   componentWillReceiveProps(nextProps) {
     let data = nextProps.data;
-
-    if (data.user && data.user === null) {
+    if (data.user === null) {
       this.props.history.push('/signup');
     } else if (data.user && data.user.id.length) {
       this.props.history.push('/feed');
