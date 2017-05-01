@@ -13,7 +13,7 @@ class LoginAuth0 extends Component {
   componentDidMount() {
     this._lock.on('authenticated', (authResult) => {
       window.localStorage.setItem('auth0IdToken', authResult.idToken);
-      this.props.history.push(`/feed`);
+      this.props.history.push(`/auth`);
     });
   }
 

@@ -7,17 +7,7 @@ import Loading from '../components/presentational/loading';
 
 class SignUpContainer extends Component {
   render () {
-    if (this.props.data.loading) {
-      return <Loading />;
-    }
-
-    // redirect if user is logged in or did not finish Auth0 Lock dialog
-    if (this.props.data.user || window.localStorage.getItem('auth0IdToken') === null) {
-      console.warn('not a new user or already logged in');
-      this.props.router.replace('/feed');
-    }
-
-    return <SignUpView data={this.props.data} createUser={this.createUser} />;
+    return <SignUpView createUser={this.createUser} />;
   }
 
   createUser = (emailAddress, name, displayName) => {
@@ -34,7 +24,7 @@ class SignUpContainer extends Component {
       }).catch((e) => {
         console.error(e);
         // lol handle errors
-        this.props.history.push('/');
+        alert('There was an error.');
       });
   }
 }
@@ -47,14 +37,4 @@ const createUser = gql`
   }
 `;
 
-const userQuery = gql`
-  query {
-    user {
-      id
-    }
-  }
-`;
-
-export default graphql(createUser, {name: 'createUser'})(
-  graphql(userQuery, { options: { fetchPolicy: 'network-only' }})(withRouter(SignUpContainer))
-);
+export default graphql(createUser, {name: 'createUser'})(withRouter(SignUpContainer));

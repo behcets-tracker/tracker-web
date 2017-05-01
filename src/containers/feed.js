@@ -11,10 +11,6 @@ class FeedContainer extends Component {
       return <Loading />;
     }
 
-    if(this.props.data.user === null) {
-      this.props.history.push('/login');
-    }
-
     return <FeedView data={this.props.data} />;
   }
 }
@@ -28,4 +24,4 @@ const userQuery = gql`
   }
 `;
 
-export default graphql(userQuery, { options: { fetchPolicy: 'network-only' }})(withRouter(FeedContainer));
+export default graphql(userQuery)(withRouter(FeedContainer));
