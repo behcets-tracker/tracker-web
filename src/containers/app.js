@@ -14,11 +14,19 @@ class HomeContainer extends Component {
     return true;
   }
 
-  componentWillReceiveProps() {
+  _missingTokenRedirect() {
     // In the future this might redirect to a home page with a link to login
     if (!this.hasToken && window.location.pathname !== '/login') {
       this.props.history.push('/login');
     }
+  }
+
+  componentWillMount() {
+    this._missingTokenRedirect();
+  }
+
+  componentWillReceiveProps() {
+    this._missingTokenRedirect();
   }
 
   render() {

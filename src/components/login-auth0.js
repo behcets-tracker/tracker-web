@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Auth0Lock from 'auth0-lock';
 import { withRouter } from 'react-router';
 
@@ -13,20 +13,16 @@ class LoginAuth0 extends Component {
   componentDidMount() {
     this._lock.on('authenticated', (authResult) => {
       window.localStorage.setItem('auth0IdToken', authResult.idToken);
-      this.props.history.push(`/auth`);
+      this.props.history.replace(`/auth`);
     });
-  }
 
-  _showLogin = () => {
-    this._lock.show();
+    if (!this.props.history.location.hash.includes('access_token')) {
+      this._lock.show();
+    }
   }
 
   render() {
-    return (
-      <a className="nav-item" onClick={this._showLogin}>
-        Login
-      </a>
-    );
+    return null;
   }
 }
 

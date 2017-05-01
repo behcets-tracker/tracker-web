@@ -3,7 +3,6 @@ import { withRouter } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import SignUpView from '../views/sign-up';
-import Loading from '../components/presentational/loading';
 
 class SignUpContainer extends Component {
   render () {
