@@ -5,13 +5,14 @@ import gql from 'graphql-tag';
 import Loading from '../components/presentational/loading';
 
 class AuthContainer extends Component {
-  componentWillReceiveProps(nextProps) {
-    let data = nextProps.data;
-    if (data.user === null) {
-      this.props.history.push('/signup');
-    } else if (data.user && data.user.id.length) {
-      this.props.history.push('/feed');
-    }
+  componentWillMount() {
+    this.props.data.refetch().then(({data}) => {
+      if (data.user === null) {
+        this.props.history.push('/signup');
+      } else if (data.user && data.user.id.length) {
+        this.props.history.push('/feed');
+      }
+    });
   }
 
   render () {
@@ -27,4 +28,4 @@ const userQuery = gql`
   }
 `;
 
-export default graphql(userQuery, { options: { fetchPolicy: 'network-only' }})(withRouter(AuthContainer));
+export default graphql(userQuery)(withRouter(AuthContainer));

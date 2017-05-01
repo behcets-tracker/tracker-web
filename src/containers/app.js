@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import HomeView from '../views/home';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import Navigation from '../components/navigation';
 
-class HomeContainer extends Component {
+class AppContainer extends Component {
   get hasToken() {
     let authToken = window.localStorage.getItem('auth0IdToken');
 
@@ -30,8 +32,16 @@ class HomeContainer extends Component {
   }
 
   render() {
-    return <HomeView />;
+    return <Navigation user={this.props.data.user} />;
   }
 }
 
-export default withRouter(HomeContainer);
+const userQuery = gql`
+  query {
+    user {
+      id
+    }
+  }
+`;
+
+export default graphql(userQuery)(withRouter(AppContainer));
