@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AuthContainer from './utils/container';
 import { graphql } from 'react-apollo';
 import { withRouter } from 'react-router';
 import gql from 'graphql-tag';
 import Loading from '../components/presentational/loading';
 import FeedView from '../views/feed';
 
-class FeedContainer extends Component {
+/**
+ * Manages the user feed route.
+ *
+ * @class FeedContainer
+ * @extends AuthContainer
+ */
+class FeedContainer extends AuthContainer {
   render() {
-    if (this.props.data.loading) {
+    if (this.isLoading) {
       return <Loading />;
     }
 

@@ -1,9 +1,15 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Auth0Lock from 'auth0-lock';
 import { withRouter } from 'react-router';
 
+/**
+ * A component whose job is to authenticate with Auth0 and store the
+ * idToken in localStore. Then redirect to the auth route.
+ *
+ * @class LoginAuth0
+ * @extends React.Component
+ */
 class LoginAuth0 extends Component {
-
   constructor (props) {
     super(props);
 
@@ -21,8 +27,20 @@ class LoginAuth0 extends Component {
     }
   }
 
+  _handleClick = () => {
+    this._lock.show();
+  }
+
   render() {
-    return null;
+    return (
+      <div className="section">
+        <div className="container has-text-centered">
+          <button onClick={this._handleClick} className="button is-primary">
+            Login
+          </button>
+        </div>
+      </div>
+    );
   }
 }
 
