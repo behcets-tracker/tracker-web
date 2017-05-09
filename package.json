@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "enzyme": "^2.8.2",
     "prettier-eslint-cli": "^3.2.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.4"
   },
   "dependencies": {
     "apollo-client": "^1.0.2",

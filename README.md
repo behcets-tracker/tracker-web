@@ -1,4 +1,4 @@
-# bechets-tracker-web
+# bechets-tracker-web [![Build Status](https://travis-ci.org/behcets-tracker/tracker-web.svg?branch=master)](https://travis-ci.org/behcets-tracker/tracker-web)
 
 The purpose of this app is to keep track of any behcets medical
 records. Basically turn this set of spreadsheets into apps:
