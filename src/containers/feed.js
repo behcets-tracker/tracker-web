@@ -3,7 +3,7 @@ import AuthContainer from './utils/container';
 import { graphql } from 'react-apollo';
 import { withRouter } from 'react-router';
 import gql from 'graphql-tag';
-import Loading from '../components/presentational/loading';
+import Loading from '../components/presentational/loading/loading';
 import FeedView from '../views/feed';
 
 /**

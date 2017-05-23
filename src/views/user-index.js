@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-// import Loading from './Loading';
-
-const Loading = () => {
-  return <span>Loading...</span>;
-};
+import Loading from '../components/presentational/loading/loading';
 
 class UserIndexView extends Component {
   render () {

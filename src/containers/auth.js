@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import Loading from '../components/presentational/loading';
+import Loading from '../components/presentational/loading/loading';
 
 class AuthContainer extends Component {
   componentWillMount() {

@@ -9,6 +9,7 @@ import LoginContainer from './containers/login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import registerServiceWorker from './registerServiceWorker';
 import 'tachyons';
 import './index.css';
 
@@ -47,3 +48,5 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById('root')
 );
+
+registerServiceWorker();
