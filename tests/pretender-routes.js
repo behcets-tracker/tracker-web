@@ -10,7 +10,6 @@ const fixture = {
 
 function pretenderRoutes() {
   this.post('https://api.graph.cool/simple/v1/behcets-tracker', function(request) {
-    // debugger;
     return [
       200,
       { 'content-type': 'application/graphql' },

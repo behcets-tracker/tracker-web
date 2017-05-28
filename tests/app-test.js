@@ -23,19 +23,15 @@ describe('Render the app', function() {
       this.router.history.push('/feed');
     });
 
-    it('does something', function() {
+    it('actually navigates', function() {
       expect(this.router.history.location.pathname).to.equal('/feed');
     });
 
     it('renders the user name', function(done) {
       assertUntilTimeout(() => {
-        expect($('h1').length).to.equal(1);
         expect($('h1').text()).to.equal('Robert DeLuca');
         done();
       });
     });
-
   });
-
-
 });
