@@ -1,91 +1,19 @@
 const fixture = {
-  "data": [
-    {
-      "type":"gif",
-      "id":"ejEOLTWOy80qk",
-      "slug":"stock-mustang-package-ejEOLTWOy80qk",
-      "url":"https:\/\/giphy.com\/gifs\/stock-mustang-package-ejEOLTWOy80qk",
-      "bitly_gif_url":"http:\/\/gph.is\/1ZWiD3X",
-      "bitly_url":"http:\/\/gph.is\/1ZWiD3X",
-      "embed_url":"https:\/\/giphy.com\/embed\/ejEOLTWOy80qk",
-      "username":"",
-      "source":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "rating":"g",
-      "content_url":"",
-      "source_tld":"www.reddit.com",
-      "source_post_url":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "is_indexable":0,
-      "import_datetime":"2016-01-28 17:48:28",
-      "trending_datetime":"0000-00-00 00:00:00",
-      "images":{
-        "downsized_medium":{
-          "url":"//:0",
-          "width":"426",
-          "height":"240",
-          "size":"3314655"
-        }
-      }
-    },
-    {
-      "type":"gif",
-      "id":"ejEOLTWOy80qk2",
-      "slug":"stock-mustang-package-ejEOLTWOy80qk",
-      "url":"https:\/\/giphy.com\/gifs\/stock-mustang-package-ejEOLTWOy80qk",
-      "bitly_gif_url":"http:\/\/gph.is\/1ZWiD3X",
-      "bitly_url":"http:\/\/gph.is\/1ZWiD3X",
-      "embed_url":"https:\/\/giphy.com\/embed\/ejEOLTWOy80qk",
-      "username":"",
-      "source":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "rating":"g",
-      "content_url":"",
-      "source_tld":"www.reddit.com",
-      "source_post_url":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "is_indexable":0,
-      "import_datetime":"2016-01-28 17:48:28",
-      "trending_datetime":"0000-00-00 00:00:00",
-      "images":{
-        "downsized_medium":{
-          "url":"//:0",
-          "width":"426",
-          "height":"240",
-          "size":"3314655"
-        }
-      }
-    },
-    {
-      "type":"gif",
-      "id":"ejEOLTWOy80qk3",
-      "slug":"stock-mustang-package-ejEOLTWOy80qk",
-      "url":"https:\/\/giphy.com\/gifs\/stock-mustang-package-ejEOLTWOy80qk",
-      "bitly_gif_url":"http:\/\/gph.is\/1ZWiD3X",
-      "bitly_url":"http:\/\/gph.is\/1ZWiD3X",
-      "embed_url":"https:\/\/giphy.com\/embed\/ejEOLTWOy80qk",
-      "username":"",
-      "source":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "rating":"g",
-      "content_url":"",
-      "source_tld":"www.reddit.com",
-      "source_post_url":"http:\/\/www.reddit.com\/r\/gifs\/comments\/434dwk\/mustang_stock_lighting_package\/",
-      "is_indexable":0,
-      "import_datetime":"2016-01-28 17:48:28",
-      "trending_datetime":"0000-00-00 00:00:00",
-      "images":{
-        "downsized_medium":{
-          "url":"//:0",
-          "width":"426",
-          "height":"240",
-          "size":"3314655"
-        }
-      }
+  "data":{
+    "user":{
+      "id": "cj1v70u0iplz00148t9tsvqpr",
+      "name": "Robert DeLuca",
+      "__typename":"User"
     }
-  ]
+  }
 };
 
 function pretenderRoutes() {
-  this.get('http://api.giphy.com/v1/gifs/search', function(request) {
+  this.post('https://api.graph.cool/simple/v1/behcets-tracker', function(request) {
+    // debugger;
     return [
       200,
-      { 'content-type': 'application/javascript' },
+      { 'content-type': 'application/graphql' },
       JSON.stringify(fixture)
     ];
   });

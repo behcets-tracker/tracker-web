@@ -9,9 +9,9 @@ class AppContainer extends Component {
     let authToken = window.localStorage.getItem('auth0IdToken');
 
     // No token in localStorage means we can't auth any requests
-    if (!authToken) {
-      return false;
-    }
+    // if (!authToken) {
+    //   return false;
+    // }
 
     return true;
   }

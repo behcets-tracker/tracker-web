@@ -12,11 +12,30 @@ describe('Render the app', function() {
   });
 
   it('works', function(done) {
-    // this.timeout(11000);
     assertUntilTimeout(() => {
       expect($nav).to.have.lengthOf(1);
-      expect(window.location.pathname).to.equal('/login');
       done();
     });
   });
+
+  describe('navigating to a new route', function() {
+    beforeEach(function() {
+      this.router.history.push('/feed');
+    });
+
+    it('does something', function() {
+      expect(this.router.history.location.pathname).to.equal('/feed');
+    });
+
+    it('renders the user name', function(done) {
+      assertUntilTimeout(() => {
+        expect($('h1').length).to.equal(1);
+        expect($('h1').text()).to.equal('Robert DeLuca');
+        done();
+      });
+    });
+
+  });
+
+
 });

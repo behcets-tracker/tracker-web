@@ -29,10 +29,8 @@ export function startApp() {
     this.testContainer.id = '#testing';
     document.body.appendChild(this.testContainer);
 
-    render(React.createElement(App), this.testContainer);
-  });
-
-  beforeEach(function() {
+    this.app = render(React.createElement(App), this.testContainer);
+    this.router = this.app.refs.router;
   });
 
   afterEach(function() {

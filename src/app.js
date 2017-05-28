@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <Router>
+        <Router ref="router">
           <div>
             <Route path='/' component={AppContainer} />
             <Route exact path='/feed' component={FeedContainer} />
