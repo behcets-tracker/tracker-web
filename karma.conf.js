@@ -60,7 +60,7 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     // webpack configuration
-    webpack: require('./node_modules/react-scripts/config/webpack.config.dev.js'),
+    webpack: require('react-scripts/config/webpack.config.dev.js'),
 
     // webpack-dev-middleware config
     webpackMiddleware: {

@@ -1,12 +1,12 @@
 import jQuery from 'jquery';
 import sinonChai from 'sinon-chai';
 import jqueryChai from 'chai-jquery';
-import App from '../src/app';
+import App from '../../src/app';
 import Pretender from 'pretender';
 import pretenderRoutes from './pretender-routes';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
+import TestApplication from './test-application';
 import chai from 'chai';
-import React from 'react';
 
 chai.use(sinonChai);
 chai.use((chai, utils) => jqueryChai(chai, utils, jQuery));
@@ -24,13 +24,13 @@ export function assertUntilTimeout(fn) {
 
 export function startApp() {
   beforeEach(function() {
+    // start new pretender server to intercept XMLHttpRequests
     this.server = new Pretender(pretenderRoutes);
     this.testContainer = document.createElement('div');
     this.testContainer.id = '#testing';
     document.body.appendChild(this.testContainer);
 
-    this.app = render(React.createElement(App), this.testContainer);
-    this.router = this.app.refs.router;
+    this.app = new TestApplication(App, this.testContainer);
   });
 
   afterEach(function() {

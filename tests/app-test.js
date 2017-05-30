@@ -1,8 +1,8 @@
 import React from 'react';
 import { expect } from 'chai';
-import { $, assertUntilTimeout, startApp } from './test-helpers';
+import { $, assertUntilTimeout, startApp } from './utils/test-helpers';
 
-describe('Render the app', function() {
+describe('Authentication', function() {
   let $nav;
 
   startApp();
@@ -11,26 +11,45 @@ describe('Render the app', function() {
     $nav = $(".nav");
   });
 
-  it('works', function(done) {
-    assertUntilTimeout(() => {
-      expect($nav).to.have.lengthOf(1);
-      done();
+  describe('not logged in', function() {
+    it('lands on the login route', function() {
+      expect(this.app.currentToken).to.equal(null);
+      expect(this.app.currentPath).to.equal('/login');
+    });
+
+    describe('navigating to a protected route', function() {
+      beforeEach(function() {
+        this.app.visit('/feed');
+      });
+
+      it('redirects to login', function() {
+        expect(this.app.currentPath).to.equal('/login');
+      });
     });
   });
 
-  describe('navigating to a new route', function() {
+  describe('logged in', function() {
     beforeEach(function() {
-      this.router.history.push('/feed');
+      this.app.login();
+    });
+    afterEach(function() {
+      this.app.logout();
     });
 
-    it('actually navigates', function() {
-      expect(this.router.history.location.pathname).to.equal('/feed');
-    });
+    describe('navigating to a protected route', function() {
+      beforeEach(function() {
+        this.app.visit('/feed');
+      });
 
-    it('renders the user name', function(done) {
-      assertUntilTimeout(() => {
-        expect($('h1').text()).to.equal('Robert DeLuca');
-        done();
+      it('actually navigates', function() {
+        expect(this.app.currentPath).to.equal('/feed');
+      });
+
+      it('renders the user name', function(done) {
+        assertUntilTimeout(() => {
+          expect($('h1').text()).to.equal('Robert DeLuca');
+          done();
+        });
       });
     });
   });
