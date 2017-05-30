@@ -4,6 +4,7 @@ import { $, assertUntilTimeout, startApp } from './utils/test-helpers';
 
 describe('Authentication', function() {
   startApp();
+
   describe('not logged in', function() {
     it('lands on the login route', function() {
       expect(this.app.currentToken).to.equal(null);
@@ -41,7 +42,7 @@ describe('Authentication', function() {
 
       it('renders the user name', function(done) {
         assertUntilTimeout(() => {
-          expect($('h1').text()).to.equal('Name Namerson');
+          expect($('h1').text()).to.equal('Hello World');
           done();
         });
       });

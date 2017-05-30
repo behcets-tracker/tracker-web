@@ -1,20 +1,21 @@
-const fixture = {
-  "data":{
-    "user":{
-      "id": "123",
-      "name": "Name Namerson",
-      "__typename":"User"
-    }
-  }
-};
+import { mockServer } from 'graphql-tools';
+import schema from './schema';
+import gql from 'graphql-tag';
+
+const backendMock = mockServer(schema);
 
 function pretenderRoutes() {
   this.post('https://api.graph.cool/simple/v1/behcets-tracker', function(request) {
-    return [
-      200,
-      { 'content-type': 'application/graphql' },
-      JSON.stringify(fixture)
-    ];
+    let JSONRequest = JSON.parse(request.requestBody);
+    let query = `query ${JSONRequest.query}`;
+
+    return backendMock.query(query).then((response) => {
+      return [
+        200,
+        { 'content-type': 'application/graphql' },
+        JSON.stringify(response)
+      ];
+    });
   });
 
   this.get('https://robdel12.auth0.com/user/ssodata/', function() {
