@@ -27,7 +27,7 @@ export function startApp() {
     // start new pretender server to intercept XMLHttpRequests
     this.server = new Pretender(pretenderRoutes);
     this.testContainer = document.createElement('div');
-    this.testContainer.id = '#testing';
+    this.testContainer.id = `testing-${Math.random().toString(36).substring(7)}`;
     document.body.appendChild(this.testContainer);
 
     this.app = new TestApplication(App, this.testContainer);
@@ -36,6 +36,7 @@ export function startApp() {
   afterEach(function() {
     unmountComponentAtNode(this.testContainer);
     document.body.removeChild(this.testContainer);
+    this.app = null;
     this.testContainer = null;
     this.server.shutdown();
   });

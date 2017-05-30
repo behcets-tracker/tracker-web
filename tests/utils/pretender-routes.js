@@ -1,8 +1,8 @@
 const fixture = {
   "data":{
     "user":{
-      "id": "cj1v70u0iplz00148t9tsvqpr",
-      "name": "Robert DeLuca",
+      "id": "123",
+      "name": "Name Namerson",
       "__typename":"User"
     }
   }
