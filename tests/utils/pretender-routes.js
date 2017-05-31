@@ -1,6 +1,5 @@
 import { mockServer } from 'graphql-tools';
 import schema from './schema';
-import gql from 'graphql-tag';
 
 const backendMock = mockServer(schema, {
   User: () => ({
