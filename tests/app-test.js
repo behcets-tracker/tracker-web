@@ -42,7 +42,7 @@ describe('Authentication', function() {
 
       it('renders the user name', function(done) {
         assertUntilTimeout(() => {
-          expect($('h1').text()).to.equal('Hello World');
+          expect($('h1').text()).to.equal('Name Namerson');
           done();
         });
       });

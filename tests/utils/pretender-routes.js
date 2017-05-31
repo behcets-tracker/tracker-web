@@ -2,7 +2,13 @@ import { mockServer } from 'graphql-tools';
 import schema from './schema';
 import gql from 'graphql-tag';
 
-const backendMock = mockServer(schema);
+const backendMock = mockServer(schema, {
+  User: () => ({
+    emailAddress: 'namerson@example.com',
+    displayName: '@namey',
+    name: 'Name Namerson'
+  }),
+});
 
 function pretenderRoutes() {
   this.post('https://api.graph.cool/simple/v1/behcets-tracker', function(request) {
