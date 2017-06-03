@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 class TestApplication {
   constructor(App, testContainer) {
-    this.app = render(React.createElement(App), testContainer);
+    this.renderApp(App, testContainer);
     this.router = this.app.refs.router;
   }
 
@@ -29,6 +29,10 @@ class TestApplication {
   // in the future I'd like to wrap in a promise
   visit(path) {
     this.router.history.push(path);
+  }
+
+  renderApp(App, testContainer) {
+    this.app = render(React.createElement(App, {}), testContainer);
   }
 
 }

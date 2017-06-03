@@ -1,6 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
-import { $, assertUntilTimeout, startApp } from './utils/test-helpers';
+import {
+  $,
+  it,
+  startApp
+} from './utils/test-helpers';
 
 describe('Authentication', function() {
   startApp();
@@ -40,11 +44,8 @@ describe('Authentication', function() {
         expect(this.app.currentPath).to.equal('/feed');
       });
 
-      it('renders the user name', function(done) {
-        assertUntilTimeout(() => {
-          expect($('h1').text()).to.equal('Name Namerson');
-          done();
-        });
+      it('renders the user name', function() {
+        expect($('h1').text()).to.equal('Name Namerson');
       });
     });
   });
