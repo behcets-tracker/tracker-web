@@ -31,8 +31,8 @@ class TestApplication {
     this.router.history.push(path);
   }
 
-  renderApp(App, testContainer) {
-    this.app = render(React.createElement(App, {}), testContainer);
+  renderApp(App, testContainer, props = {}) {
+    this.app = render(React.createElement(App, props), testContainer);
   }
 
 }
