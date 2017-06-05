@@ -20,6 +20,20 @@ yarn install
 yarn start # open http://localhost:3000 in your browser
 ```
 
+If you want to run all the tests you can run:
+
+```sh
+yarn test
+```
+
+Or just one suite
+
+```sh
+yarn test:acceptance
+## Or
+yarn test:unit
+```
+
 Current GraphQL schema:
 
 ```
