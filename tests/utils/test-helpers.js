@@ -73,6 +73,11 @@ export function it(...args) {
   }
 }
 
+/**
+ * Does all the required setup to create an application for Acceptance
+ * testing.
+ *
+ */
 export function startApp() {
   before(function() {
     // start new pretender server to intercept XMLHttpRequests
