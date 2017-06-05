@@ -19,4 +19,4 @@ before_script:
   - yarn install
   - sleep 3
 script:
-  - yarn test:acceptance
+  - yarn test
