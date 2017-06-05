@@ -3,7 +3,7 @@ import sinonChai from 'sinon-chai';
 import jqueryChai from 'chai-jquery';
 import App from '../../src/app';
 import Pretender from 'pretender';
-import pretenderRoutes from './pretender-routes';
+import dataMock from './data-mocking';
 import { unmountComponentAtNode } from 'react-dom';
 import TestApplication from './test-application';
 import chai from 'chai';
@@ -76,7 +76,7 @@ export function it(...args) {
 export function startApp() {
   before(function() {
     // start new pretender server to intercept XMLHttpRequests
-    this.server = new Pretender(pretenderRoutes);
+    this.server = new Pretender(dataMock);
     this.testContainer = document.createElement('div');
     this.testContainer.id = `testing-${Math.random().toString(36).substring(7)}`;
     document.body.appendChild(this.testContainer);
