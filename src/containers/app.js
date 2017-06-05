@@ -39,7 +39,8 @@ class AppContainer extends Component {
 const userQuery = gql`
   query {
     user {
-      id
+      id,
+      displayName
     }
   }
 `;

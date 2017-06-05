@@ -2,9 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Loading from '../loading/loading';
 
-it('renders a loading message', () => {
+it('renders a loading indicator', () => {
   const wrapper = shallow(<Loading />);
-  const loading = <h2>Loading..</h2>;
 
-  expect(wrapper.contains(loading)).toEqual(true);
+  expect(wrapper.find('.loading').exists()).toEqual(true);
 });
