@@ -5,6 +5,7 @@ import FeedContainer from './containers/feed';
 import LogoutContainer from './containers/logout';
 import AuthContainer from './containers/auth';
 import LoginContainer from './containers/login';
+import SymptomsContainer from './containers/symptoms';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
@@ -36,6 +37,7 @@ class App extends Component {
           <div>
             <Route path='/' component={AppContainer} />
             <Route exact path='/feed' component={FeedContainer} />
+            <Route exact path='/symptoms' component={SymptomsContainer} />
             <Route exact path='/login' component={LoginContainer} />
             <Route exact path='/signup' component={SignUpContainer} />
             <Route exact path='/logout' component={LogoutContainer} />

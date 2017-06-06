@@ -40,7 +40,8 @@ class Navigation extends Component {
           </span>
           <div className={`${isActive} nav-right nav-menu`}>
             {this.props.user &&
-              [<NavLink link="/feed" title="Feed" key="feed" onClick={this.closeMenu} />,
+              [<NavLink link="/symptoms" title="Symptoms" key="symptoms" onClick={this.closeMenu} />,
+               <NavLink link="/feed" title="Feed" key="feed" onClick={this.closeMenu} />,
                <NavLink link="/profile" title={this.props.user.displayName} key="profile" onClick={this.closeMenu} />,
                <NavLink link="/logout" title="Logout" key="logout" onClick={this.closeMenu} /> ]
                }
