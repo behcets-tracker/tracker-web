@@ -10,6 +10,11 @@ describe('Authentication', function() {
   startApp();
 
   describe('not logged in', function() {
+    beforeEach(function() {
+      //ensure you're logged out
+      this.app.logout();
+    });
+
     it('lands on the login route', function() {
       expect(this.app.currentToken).to.equal(null);
       expect(this.app.currentPath).to.equal('/login');

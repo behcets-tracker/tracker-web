@@ -35,7 +35,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:unit": "react-scripts test --env=jsdom",
-    "test:acceptance": "NODE_ENV=development karma start",
+    "test:acceptance": "NODE_ENV=test karma start",
     "test": "CI=true yarn test:unit && CI=true yarn test:acceptance",
     "eject": "react-scripts eject",
     "prettier": "prettier-eslint --write \"src/**/*.+(js|jsx)\"",

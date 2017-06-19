@@ -81,7 +81,7 @@ input CreateSurgery {
 input CreateSymptom {
   description: String
   name: String
-  question: [String!]
+  questions: [String!]
   userId: ID
 }
 
@@ -793,7 +793,7 @@ type Mutation {
   ): Medication
   createSideEffect(description: String, name: String, medicationsIds: [ID!], medications: [SideEffectmedicationsMedication!]): SideEffect
   createSurgery(userId: ID): Surgery
-  createSymptom(description: String, name: String, question: [String!], userId: ID): Symptom
+  createSymptom(description: String, name: String, questions: [String!], userId: ID): Symptom
   updateFile(id: ID!, name: String): File
   updateMedication(
     dailyQuantity: Int
@@ -816,7 +816,7 @@ type Mutation {
   ): Medication
   updateSideEffect(description: String, id: ID!, name: String, medicationsIds: [ID!], medications: [SideEffectmedicationsMedication!]): SideEffect
   updateSurgery(id: ID!, userId: ID): Surgery
-  updateSymptom(description: String, id: ID!, name: String, question: [String!], userId: ID): Symptom
+  updateSymptom(description: String, id: ID!, name: String, questions: [String!], userId: ID): Symptom
   updateUser(displayName: String, emailAddress: String, id: ID!, name: String, medicationsIds: [ID!], medications: [UsermedicationsMedication!], surgeriesIds: [ID!], symptomsIds: [ID!], symptoms: [UsersymptomsSymptom!]): User
   updateOrCreateFile(update: UpdateFile!, create: CreateFile!): File
   updateOrCreateMedication(update: UpdateMedication!, create: CreateMedication!): Medication
@@ -1265,7 +1265,7 @@ type Symptom implements Node {
   description: String
   id: ID!
   name: String
-  question: [String!]
+  questions: [String!]
   updatedAt: DateTime!
   user(filter: UserFilter): User
 }
@@ -1480,7 +1480,7 @@ input UpdateSymptom {
   description: String
   id: ID!
   name: String
-  question: [String!]
+  questions: [String!]
   userId: ID
 }
 
@@ -1814,7 +1814,7 @@ type UserSubscriptionPayload {
 input UsersymptomsSymptom {
   description: String
   name: String
-  question: [String!]
+  questions: [String!]
 }
 `;
 

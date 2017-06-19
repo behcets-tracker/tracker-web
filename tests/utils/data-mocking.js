@@ -14,7 +14,17 @@ const backendMock = mockServer(schema, {
   User: () => ({
     emailAddress: 'namerson@example.com',
     displayName: '@namey',
-    name: 'Name Namerson'
+    name: 'Name Namerson',
+    symptoms: [
+      {
+        name: 'Mouth ulcers',
+        description: 'Painful mouth ulcers make it difficult to eat',
+        questions: [
+          'What are they?',
+          'How did they get there?'
+        ]
+      }
+    ]
   }),
 });
 

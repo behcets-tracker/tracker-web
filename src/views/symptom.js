@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 
 class SymptomView extends Component {
+  renderQuestions(questions) {
+    return questions.map((question, index) => {
+      return (
+        <li data-test-symptom-question key={`symQues-${index}`}>
+          {question}
+        </li>
+      );
+    });
+  }
+
   renderSymptoms() {
     let symptoms = this.props.data.user.symptoms;
 
     return symptoms.map(symptom => {
       return (
-        <div key={symptom.id} className="symptom card">
+        <div key={symptom.id} className="symptom card" data-test-symptom-card>
           <header className="card-header">
-            <p className="card-header-title">
+            <p className="card-header-title" data-test-symptom-title>
               {symptom.name}
             </p>
           </header>
           <div className="card-content">
             <div className="content">
-            <p>{symptom.description}</p>
+              <p data-test-symptom-description>{symptom.description}</p>
 
-            <ul>
-              <li>{symptom.questions}</li>
-            </ul>
+              <ul>
+                {this.renderQuestions(symptom.questions)}
+              </ul>
             </div>
           </div>
         </div>
