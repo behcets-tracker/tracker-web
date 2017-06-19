@@ -13,8 +13,14 @@ import SymptomView from '../views/symptom';
  * @extends AuthContainer
  */
 class SymptomContainer extends AuthContainer {
+  componentDidUpdate() {
+    if(!this.hasUser) {
+      this.props.history.replace('/login');
+    }
+  }
+
   render() {
-    if (this.isLoading) {
+    if (this.isLoading || !this.hasUser) {
       return <Loading />;
     }
 
